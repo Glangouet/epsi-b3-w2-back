@@ -18,5 +18,7 @@ public interface ProjectInterface {
     Project updateProject(Project project);
 
     void deleteProject(int id);
+    
+    Project getProjectById(int id);
 
 }
