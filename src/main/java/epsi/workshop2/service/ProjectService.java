@@ -5,19 +5,19 @@
  */
 package epsi.workshop2.service;
 
-import epsi.workshop2.DAO.Project;
+import epsi.workshop2.entity.Project;
 
 /**
  *
  * @author rfera
  */
-public interface ProjectInterface {
+public interface ProjectService {
 
-    Project createProject(Project project);
+    void createProject(Project project);
 
-    Project updateProject(Project project);
+    void updateProject(Project project);
 
-    void deleteProject(int id);
+    void deleteProject(Project project);
     
     Project getProjectById(int id);
 

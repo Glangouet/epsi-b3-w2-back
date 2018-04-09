@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package epsi.workshop2.DAO;
+package epsi.workshop2.entity;
 
 import java.util.Date;
 import javax.persistence.Column;

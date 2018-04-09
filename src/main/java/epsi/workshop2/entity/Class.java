@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package epsi.workshop2.DAO;
+package epsi.workshop2.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,26 +14,25 @@ import javax.persistence.Id;
  * @author rfera
  */
 @Entity
-public class Skill {
-
+public class Class {
     @Id
-    private int idSkill;
-
+    private int idClass;
+    
     @Column
     private String name;
 
     /**
-     * @return the idSkill
+     * @return the idClass
      */
-    public int getIdSkill() {
-        return idSkill;
+    public int getIdClass() {
+        return idClass;
     }
 
     /**
-     * @param idSkill the idSkill to set
+     * @param idClass the idClass to set
      */
-    public void setIdSkill(int idSkill) {
-        this.idSkill = idSkill;
+    public void setIdClass(int idClass) {
+        this.idClass = idClass;
     }
 
     /**
