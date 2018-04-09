@@ -6,19 +6,38 @@
 package epsi.workshop2.service;
 
 import epsi.workshop2.entity.Project;
+import epsi.worshop2.repository.ProjectRepository;
+import javax.annotation.Resource;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author rfera
  */
-public interface ProjectService {
+@Service(value = "projectService")
 
-    void createProject(Project project);
+public class ProjectService implements ProjectServiceInterface {
 
-    void updateProject(Project project);
+    @Resource
+    private ProjectRepository projectRepository;
 
-    void deleteProject(Project project);
-    
-    Project getProjectById(int id);
+    @Override
+    public void createProject(Project project) {
+        projectRepository.save(project);
+    }
 
+    @Override
+    public void updateProject(Project project) {
+        projectRepository.save(project);
+    }
+
+    @Override
+    public void deleteProject(Project project) {
+        projectRepository.delete(project);
+    }
+
+    @Override
+    public Project getProjectById(int id) {
+        return this.projectRepository.findOne(String.valueOf(id));
+    }
 }
