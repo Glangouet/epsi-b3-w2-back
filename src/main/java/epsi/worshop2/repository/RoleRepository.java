@@ -5,13 +5,13 @@
  */
 package epsi.worshop2.repository;
 
-import epsi.workshop2.entity.Project;
+import epsi.workshop2.entity.Role;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
- * @author rfera
+ * @author Nico
  */
-public interface ServiceRepository extends CrudRepository<Project, String>{
+public interface RoleRepository extends CrudRepository<Role, String> {
     
 }
