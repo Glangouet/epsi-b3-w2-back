@@ -6,6 +6,7 @@
 package epsi.workshop2.service;
 
 import epsi.workshop2.entity.Project;
+import epsi.workshop2.entity.User;
 import epsi.workshop2.repository.ProjectRepository;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -40,4 +41,14 @@ public class ProjectService implements ProjectServiceInterface {
     public Project getProjectById(int id) {
         return this.projectRepository.findOne(String.valueOf(id));
     }
+
+    public Iterable<Project> getAllProject() {
+        return this.projectRepository.findAll();
+    }
+
+    public Project getProjectsByUser(User user) {
+        return this.projectRepository.findProjectByUser(user);
+    }
+
+
 }

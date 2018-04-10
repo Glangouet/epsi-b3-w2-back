@@ -6,6 +6,7 @@
 package epsi.workshop2.repository;
 
 import epsi.workshop2.entity.Project;
+import epsi.workshop2.entity.User;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -13,5 +14,7 @@ import org.springframework.data.repository.CrudRepository;
  * @author rfera
  */
 public interface ProjectRepository extends CrudRepository<Project, String>{
+    
+    public Project findProjectByUser(User user);
     
 }
