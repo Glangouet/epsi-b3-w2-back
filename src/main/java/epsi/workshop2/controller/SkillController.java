@@ -1,9 +1,7 @@
 package epsi.workshop2.controller;
 
 import epsi.workshop2.entity.Skill;
-import epsi.workshop2.entity.Student;
 import epsi.workshop2.service.SkillService;
-import epsi.workshop2.service.StudentService;
 
 import javax.annotation.Resource;
 import org.slf4j.Logger;
