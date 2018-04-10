@@ -6,7 +6,7 @@
 package epsi.workshop2.service;
 
 import epsi.workshop2.entity.Professor;
-import epsi.worshop2.repository.ProfessorRepository;
+import epsi.workshop2.repository.ProfessorRepository;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -22,19 +22,19 @@ public class ProfessorService {
     @Resource
     private ProfessorRepository professorRepository;
 
-    public void createUser(Professor role) {
-        professorRepository.save(role);
+    public void createProfessor(Professor professor) {
+        professorRepository.save(professor);
     }
 
-    public void updateUser(Professor role) {
-        professorRepository.save(role);
+    public void updateProfessor(Professor professor) {
+        professorRepository.save(professor);
     }
 
-    public void deleteUser(Professor role) {
-        professorRepository.delete(role);
+    public void deleteProfessor(Professor professor) {
+        professorRepository.delete(professor);
     }
 
-    public Professor getStudentById(int id) {
+    public Professor getProfessorById(int id) {
         return this.professorRepository.findOne(String.valueOf(id));
     }
     

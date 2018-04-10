@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package epsi.worshop2.repository;
+package epsi.workshop2.repository;
 
-import epsi.workshop2.entity.Role;
+import epsi.workshop2.entity.User;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author Nico
  */
-public interface RoleRepository extends CrudRepository<Role, String> {
+public interface UserRepository extends CrudRepository<User, String> {
     
 }

@@ -6,7 +6,7 @@
 package epsi.workshop2.service;
 
 import epsi.workshop2.entity.Skill;
-import epsi.worshop2.repository.SkillRepository;
+import epsi.workshop2.repository.SkillRepository;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -22,19 +22,19 @@ public class SkillService {
     @Resource
     private SkillRepository skillRepository;
 
-    public void createUser(Skill skill) {
+    public void createSkill(Skill skill) {
         skillRepository.save(skill);
     }
 
-    public void updateUser(Skill skill) {
+    public void updateSkill(Skill skill) {
         skillRepository.save(skill);
     }
 
-    public void deleteUser(Skill skill) {
+    public void deleteSkill(Skill skill) {
         skillRepository.delete(skill);
     }
 
-    public Skill getStudentById(int id) {
+    public Skill getSkillById(int id) {
         return this.skillRepository.findOne(String.valueOf(id));
     }
     

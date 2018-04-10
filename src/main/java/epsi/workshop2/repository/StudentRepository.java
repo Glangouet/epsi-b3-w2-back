@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package epsi.worshop2.repository;
+package epsi.workshop2.repository;
 
-import epsi.workshop2.entity.Skill;
+import epsi.workshop2.entity.Student;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author Nico
  */
-public interface SkillRepository extends CrudRepository<Skill, String> {
+public interface StudentRepository extends CrudRepository<Student, String> {
     
 }

@@ -6,7 +6,7 @@
 package epsi.workshop2.service;
 
 import epsi.workshop2.entity.Campus;
-import epsi.worshop2.repository.CampusRepository;
+import epsi.workshop2.repository.CampusRepository;
 import javax.annotation.Resource;
 
 /**

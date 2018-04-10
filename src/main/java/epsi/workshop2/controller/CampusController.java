@@ -1,4 +1,4 @@
-package epsi.workshop.controller;
+package epsi.workshop2.controller;
 
 import epsi.workshop2.entity.Campus;
 import epsi.workshop2.service.CampusService;

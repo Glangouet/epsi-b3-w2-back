@@ -5,7 +5,7 @@
  */
 package epsi.workshop2.service;
 
-import epsi.worshop2.repository.ClassRepository;
+import epsi.workshop2.repository.ClassRepository;
 import javax.annotation.Resource;
 
 /**

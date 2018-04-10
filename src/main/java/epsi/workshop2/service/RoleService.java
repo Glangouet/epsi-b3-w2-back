@@ -6,7 +6,7 @@
 package epsi.workshop2.service;
 
 import epsi.workshop2.entity.Role;
-import epsi.worshop2.repository.RoleRepository;
+import epsi.workshop2.repository.RoleRepository;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -22,19 +22,19 @@ public class RoleService {
     @Resource
     private RoleRepository skillRepository;
 
-    public void createUser(Role role) {
+    public void createRole(Role role) {
         skillRepository.save(role);
     }
 
-    public void updateUser(Role role) {
+    public void updateRole(Role role) {
         skillRepository.save(role);
     }
 
-    public void deleteUser(Role role) {
+    public void deleteRole(Role role) {
         skillRepository.delete(role);
     }
 
-    public Role getStudentById(int id) {
+    public Role getRoleById(int id) {
         return this.skillRepository.findOne(String.valueOf(id));
     }
     

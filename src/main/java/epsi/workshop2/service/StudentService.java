@@ -6,7 +6,7 @@
 package epsi.workshop2.service;
 
 import epsi.workshop2.entity.Student;
-import epsi.worshop2.repository.StudentRepository;
+import epsi.workshop2.repository.StudentRepository;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -22,15 +22,15 @@ public class StudentService {
     @Resource
     private StudentRepository studentRepository;
 
-    public void createUser(Student student) {
+    public void createStudent(Student student) {
         studentRepository.save(student);
     }
 
-    public void updateUser(Student student) {
+    public void updateStudent(Student student) {
         studentRepository.save(student);
     }
 
-    public void deleteUser(Student student) {
+    public void deleteStudent(Student student) {
         studentRepository.delete(student);
     }
 

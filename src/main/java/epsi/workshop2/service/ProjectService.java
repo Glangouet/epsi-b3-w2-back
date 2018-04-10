@@ -6,7 +6,7 @@
 package epsi.workshop2.service;
 
 import epsi.workshop2.entity.Project;
-import epsi.worshop2.repository.ProjectRepository;
+import epsi.workshop2.repository.ProjectRepository;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
