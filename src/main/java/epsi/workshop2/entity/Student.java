@@ -18,6 +18,6 @@ public class Student extends User {
 
     @ManyToOne
     @JoinColumn(name = "classId")
-    private StudentClass studentClass;
+    private Privileges studentClass;
 
 }
