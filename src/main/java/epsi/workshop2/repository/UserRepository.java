@@ -5,6 +5,9 @@
  */
 package epsi.workshop2.repository;
 
+import epsi.workshop2.entity.Campus;
+import epsi.workshop2.entity.Role;
+import epsi.workshop2.entity.Skill;
 import epsi.workshop2.entity.User;
 import org.springframework.data.repository.CrudRepository;
 
@@ -12,6 +15,8 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author Nico
  */
-public interface UserRepository extends CrudRepository<User, String> {
+public interface UserRepository extends CrudRepository<User, String> { 
+    Iterable<User> findAllUsersBySkills(Skill skill);
     
+    Iterable<User> findAllUserByCampusAndRole(Campus campus, Role role);
 }

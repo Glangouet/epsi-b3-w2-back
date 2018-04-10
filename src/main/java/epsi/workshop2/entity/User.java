@@ -5,12 +5,14 @@
  */
 package epsi.workshop2.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
@@ -40,6 +42,10 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "projectId")
     private Project project;
+    
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "skillId")
+    private StudentClass skill;
 
     /**
      * @return the idUser

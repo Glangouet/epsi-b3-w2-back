@@ -5,6 +5,9 @@
  */
 package epsi.workshop2.service;
 
+import epsi.workshop2.entity.Campus;
+import epsi.workshop2.entity.Role;
+import epsi.workshop2.entity.Skill;
 import epsi.workshop2.entity.User;
 import epsi.workshop2.repository.UserRepository;
 import javax.annotation.Resource;
@@ -40,6 +43,16 @@ public class UserService implements UserServiceInterface {
     @Override
     public User getUserById(int id) {
         return this.userRepository.findOne(String.valueOf(id));
+    }
+
+    @Override
+    public Iterable<User> getAllUsersBySkills(Skill skill) {
+        return this.userRepository.findAllUsersBySkills(skill);
+    }
+
+    @Override
+    public Iterable<User> getAllUserByCampusAndRole(Campus campus, Role role) {
+        return this.userRepository.findAllUserByCampusAndRole(campus, role);
     }
     
 }

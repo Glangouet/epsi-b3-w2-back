@@ -5,6 +5,9 @@
  */
 package epsi.workshop2.service;
 
+import epsi.workshop2.entity.Campus;
+import epsi.workshop2.entity.Role;
+import epsi.workshop2.entity.Skill;
 import epsi.workshop2.entity.User;
 
 /**
@@ -20,5 +23,8 @@ public interface UserServiceInterface {
     void deleteUser(User user);
 
     User getUserById(int id);
-
+    
+    Iterable<User> getAllUsersBySkills(Skill skill);
+    
+    Iterable<User> getAllUserByCampusAndRole(Campus campus, Role role);
 }
