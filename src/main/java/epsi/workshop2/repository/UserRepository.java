@@ -21,5 +21,5 @@ public interface UserRepository extends CrudRepository<User, String> {
     
     Iterable<User> findAllUserByCampusAndRole(Campus campus, Role role);
     
-    Iterable<User> findAllUserByProject(Project project);
+    Iterable<User> findUserByProject(Project project);
 }

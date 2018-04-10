@@ -57,8 +57,13 @@ public class UserService implements UserServiceInterface {
     }
 
     @Override
-    public Iterable<User> getAllUsersByProject(Project project) {
-        return this.userRepository.findAllUserByProject(project);
+    public Iterable<User> getUsersByProject(Project project) {
+        return this.userRepository.findUserByProject(project);
+    }
+
+    @Override
+    public Iterable<User> getAllUsers() {
+         return this.userRepository.findAll();
     }
     
 }

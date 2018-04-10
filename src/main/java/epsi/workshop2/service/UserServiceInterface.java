@@ -25,9 +25,11 @@ public interface UserServiceInterface {
 
     User getUserById(int id);
     
+    Iterable<User> getAllUsers();
+    
     Iterable<User> getAllUsersBySkills(Skill skill);
     
     Iterable<User> getAllUserByCampusAndRole(Campus campus, Role role);
     
-    Iterable<User> getAllUsersByProject(Project project);
+    Iterable<User> getUsersByProject(Project project);
 }
