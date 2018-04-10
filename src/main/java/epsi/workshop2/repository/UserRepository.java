@@ -6,6 +6,7 @@
 package epsi.workshop2.repository;
 
 import epsi.workshop2.entity.Campus;
+import epsi.workshop2.entity.Project;
 import epsi.workshop2.entity.Role;
 import epsi.workshop2.entity.Skill;
 import epsi.workshop2.entity.User;
@@ -19,4 +20,6 @@ public interface UserRepository extends CrudRepository<User, String> {
     Iterable<User> findAllUsersBySkills(Skill skill);
     
     Iterable<User> findAllUserByCampusAndRole(Campus campus, Role role);
+    
+    Iterable<User> findAllUserByProject(Project project);
 }

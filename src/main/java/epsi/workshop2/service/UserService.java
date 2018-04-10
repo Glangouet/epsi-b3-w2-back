@@ -6,6 +6,7 @@
 package epsi.workshop2.service;
 
 import epsi.workshop2.entity.Campus;
+import epsi.workshop2.entity.Project;
 import epsi.workshop2.entity.Role;
 import epsi.workshop2.entity.Skill;
 import epsi.workshop2.entity.User;
@@ -53,6 +54,11 @@ public class UserService implements UserServiceInterface {
     @Override
     public Iterable<User> getAllUserByCampusAndRole(Campus campus, Role role) {
         return this.userRepository.findAllUserByCampusAndRole(campus, role);
+    }
+
+    @Override
+    public Iterable<User> getAllUsersByProject(Project project) {
+        return this.userRepository.findAllUserByProject(project);
     }
     
 }

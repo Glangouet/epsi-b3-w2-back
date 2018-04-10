@@ -6,6 +6,7 @@
 package epsi.workshop2.service;
 
 import epsi.workshop2.entity.Campus;
+import epsi.workshop2.entity.Project;
 import epsi.workshop2.entity.Role;
 import epsi.workshop2.entity.Skill;
 import epsi.workshop2.entity.User;
@@ -27,4 +28,6 @@ public interface UserServiceInterface {
     Iterable<User> getAllUsersBySkills(Skill skill);
     
     Iterable<User> getAllUserByCampusAndRole(Campus campus, Role role);
+    
+    Iterable<User> getAllUsersByProject(Project project);
 }
