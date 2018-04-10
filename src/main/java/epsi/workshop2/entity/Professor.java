@@ -5,10 +5,10 @@
  */
 package epsi.workshop2.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -17,7 +17,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Professor extends User{
    
-    @ManyToOne
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "skillId")
     private Class skill;
 }

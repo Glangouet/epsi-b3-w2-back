@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/agents")
+@RequestMapping(value = "/campus")
 public class CampusController {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(CampusController.class);
