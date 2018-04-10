@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/professor")
 public class ProfessorController {
-    public static final Logger LOGGER = LoggerFactory.getLogger(CampusController.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(ProfessorController.class);
 
     @Resource
     private ProfessorService professorService;
@@ -40,13 +40,13 @@ public class ProfessorController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void deleteCampus(@PathVariable(value = "id") int id, @RequestBody Professor professor) {
+    public void deleteProfessor(@PathVariable(value = "id") int id, @RequestBody Professor professor) {
         professor.setIdUser(id);
         getProfessorService().deleteProfessor(professor);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void updateCampus(@PathVariable(value = "id") int id, @RequestBody Professor professor) {
+    public void updateProfessor(@PathVariable(value = "id") int id, @RequestBody Professor professor) {
         professor.setIdUser(id);
         getProfessorService().updateProfessor(professor);
     }
