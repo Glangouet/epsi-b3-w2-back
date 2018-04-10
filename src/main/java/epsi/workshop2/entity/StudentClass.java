@@ -14,7 +14,7 @@ import javax.persistence.Id;
  * @author rfera
  */
 @Entity
-public class Class {
+public class StudentClass {
     @Id
     private int idClass;
     

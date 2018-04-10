@@ -5,13 +5,13 @@
  */
 package epsi.workshop2.repository;
 
-import epsi.workshop2.entity.Project;
+import epsi.workshop2.entity.StudentClass;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author rfera
  */
-public interface ClassRepository extends CrudRepository<Class, String>{
+public interface StudentClassRepository extends CrudRepository<StudentClass, String>{
     
 }

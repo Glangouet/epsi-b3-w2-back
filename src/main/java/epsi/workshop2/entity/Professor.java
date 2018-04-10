@@ -19,5 +19,5 @@ public class Professor extends User{
    
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "skillId")
-    private Class skill;
+    private StudentClass skill;
 }

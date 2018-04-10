@@ -5,7 +5,6 @@
  */
 package epsi.workshop2.controller;
 
-import epsi.workshop2.entity.Campus;
 import epsi.workshop2.entity.Professor;
 import epsi.workshop2.service.ProfessorService;
 import javax.annotation.Resource;

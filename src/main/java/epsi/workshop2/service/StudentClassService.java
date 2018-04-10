@@ -5,34 +5,35 @@
  */
 package epsi.workshop2.service;
 
-import epsi.workshop2.repository.ClassRepository;
+import epsi.workshop2.entity.StudentClass;
 import javax.annotation.Resource;
+import epsi.workshop2.repository.StudentClassRepository;
 
 /**
  *
  * @author rfera
  */
-public class ClassService implements ClassServiceInterface{
+public class StudentClassService implements StudentClassServiceInterface{
     @Resource
-    private ClassRepository classRepository;
+    private StudentClassRepository classRepository;
 
     @Override
-    public void createClass(Class studentClass) {
+    public void createClass(StudentClass studentClass) {
         classRepository.save(studentClass);
     }
 
     @Override
-    public void updateClass(Class studentClass) {
+    public void updateClass(StudentClass studentClass) {
         classRepository.save(studentClass);
     }
 
     @Override
-    public void deleteClass(Class studentClass) {
+    public void deleteClass(StudentClass studentClass) {
         classRepository.delete(studentClass);
     }
 
     @Override
-    public Class getClassById(int id) {
+    public StudentClass getClassById(int id) {
        return classRepository.findOne(String.valueOf(id));
     }
     
