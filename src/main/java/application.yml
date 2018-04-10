@@ -2,10 +2,10 @@ spring:
     jpa:
         database: MYSQL
         hibernate:
-            ddl-auto: create_drop
+            ddl-auto: create-drop
 
     datasource:
-        url: jdbc:mysql://localhost:8084/workshop-back/?useUnicode=yes&characterEncoding=UTF-8
+        url: jdbc:mysql://localhost:8084/workshop?useUnicode=yes&characterEncoding=UTF-8
         username: root
         password: 
         driver-class-name: com.mysql.jdbc.Driver
