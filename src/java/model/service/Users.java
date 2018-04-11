@@ -60,9 +60,10 @@ public class Users implements Serializable {
     @ManyToMany(mappedBy = "usersCollection")
     private Collection<Skills> skillsCollection;
     @OneToMany(mappedBy = "userId")
-    private Collection<Role> roleCollection;
-    @OneToMany(mappedBy = "userId")
     private Collection<Comment> commentCollection;
+    @JoinColumn(name = "RoleId", referencedColumnName = "RoleId")
+    @ManyToOne
+    private Role roleId;
     @JoinColumn(name = "CampusId", referencedColumnName = "CampusId")
     @ManyToOne
     private Campus campusId;
@@ -144,21 +145,20 @@ public class Users implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Role> getRoleCollection() {
-        return roleCollection;
-    }
-
-    public void setRoleCollection(Collection<Role> roleCollection) {
-        this.roleCollection = roleCollection;
-    }
-
-    @XmlTransient
     public Collection<Comment> getCommentCollection() {
         return commentCollection;
     }
 
     public void setCommentCollection(Collection<Comment> commentCollection) {
         this.commentCollection = commentCollection;
+    }
+
+    public Role getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Role roleId) {
+        this.roleId = roleId;
     }
 
     public Campus getCampusId() {

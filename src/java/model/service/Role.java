@@ -6,18 +6,19 @@
 package model.service;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -40,9 +41,8 @@ public class Role implements Serializable {
     private Integer roleId;
     @Column(name = "Name")
     private String name;
-    @JoinColumn(name = "UserId", referencedColumnName = "UserId")
-    @ManyToOne
-    private Users userId;
+    @OneToMany(mappedBy = "roleId")
+    private Collection<Users> usersCollection;
 
     public Role() {
     }
@@ -67,12 +67,13 @@ public class Role implements Serializable {
         this.name = name;
     }
 
-    public Users getUserId() {
-        return userId;
+    @XmlTransient
+    public Collection<Users> getUsersCollection() {
+        return usersCollection;
     }
 
-    public void setUserId(Users userId) {
-        this.userId = userId;
+    public void setUsersCollection(Collection<Users> usersCollection) {
+        this.usersCollection = usersCollection;
     }
 
     @Override

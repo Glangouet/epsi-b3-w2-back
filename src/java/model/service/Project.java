@@ -66,13 +66,10 @@ public class Project implements Serializable {
         @JoinColumn(name = "UserId", referencedColumnName = "UserId")})
     @ManyToMany
     private Collection<Users> usersCollection;
-    @JoinTable(name = "possess", joinColumns = {
-        @JoinColumn(name = "IdProjet", referencedColumnName = "IdProjet")}, inverseJoinColumns = {
-        @JoinColumn(name = "TokenId", referencedColumnName = "TokenId")})
-    @ManyToMany
-    private Collection<Token> tokenCollection;
     @OneToMany(mappedBy = "idProjet")
     private Collection<Comment> commentCollection;
+    @OneToMany(mappedBy = "idProjet")
+    private Collection<Token> tokenCollection;
 
     public Project() {
     }
@@ -139,21 +136,21 @@ public class Project implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Token> getTokenCollection() {
-        return tokenCollection;
-    }
-
-    public void setTokenCollection(Collection<Token> tokenCollection) {
-        this.tokenCollection = tokenCollection;
-    }
-
-    @XmlTransient
     public Collection<Comment> getCommentCollection() {
         return commentCollection;
     }
 
     public void setCommentCollection(Collection<Comment> commentCollection) {
         this.commentCollection = commentCollection;
+    }
+
+    @XmlTransient
+    public Collection<Token> getTokenCollection() {
+        return tokenCollection;
+    }
+
+    public void setTokenCollection(Collection<Token> tokenCollection) {
+        this.tokenCollection = tokenCollection;
     }
 
     @Override
