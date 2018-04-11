@@ -18,6 +18,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import model.service.Campus;
+import model.service.Project;
+import model.service.Role;
+import model.service.Skills;
 import model.service.Users;
 
 /**
@@ -60,6 +64,34 @@ public class UsersFacadeREST extends AbstractFacade<Users> {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Users find(@PathParam("id") Integer id) {
         return super.find(id);
+    }
+    
+    @GET
+    @Path("{skill}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Users findBySkills(@PathParam("skills") Skills skills) {
+        return super.find(skills);
+    }
+    
+    @GET
+    @Path("{campus}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Users findByCampus(@PathParam("campus") Campus campus) {
+        return super.find(campus);
+    }
+    
+    @GET
+    @Path("{project}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Users findByProject(@PathParam("project") Project project) {
+        return super.find(project);
+    }
+    
+    @GET
+    @Path("{role}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Users findByCRole(@PathParam("role") Role role) {
+        return super.find(role);
     }
 
     @GET

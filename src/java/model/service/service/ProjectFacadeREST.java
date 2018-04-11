@@ -19,6 +19,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.service.Project;
+import model.service.Users;
 
 /**
  *
@@ -59,6 +60,14 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Project find(@PathParam("id") Integer id) {
+        return super.find(id);
+    }
+    
+    @GET
+    @Path("userId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Project findByUserId(@PathParam("userId") Users users) {
+        int id = users.getUserId();
         return super.find(id);
     }
 
