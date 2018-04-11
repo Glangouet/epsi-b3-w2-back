@@ -10,6 +10,8 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
@@ -39,6 +41,7 @@ public class Users implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "UserId")
     private Integer userId;
@@ -51,9 +54,11 @@ public class Users implements Serializable {
     @Column(name = "FirstName")
     private String firstName;
     @ManyToMany(mappedBy = "usersCollection")
-    private Collection<Skills> skillsCollection;
+    private Collection<Privilege> privilegeCollection;
     @ManyToMany(mappedBy = "usersCollection")
     private Collection<Project> projectCollection;
+    @ManyToMany(mappedBy = "usersCollection")
+    private Collection<Skills> skillsCollection;
     @OneToMany(mappedBy = "userId")
     private Collection<Role> roleCollection;
     @OneToMany(mappedBy = "userId")
@@ -112,12 +117,12 @@ public class Users implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Skills> getSkillsCollection() {
-        return skillsCollection;
+    public Collection<Privilege> getPrivilegeCollection() {
+        return privilegeCollection;
     }
 
-    public void setSkillsCollection(Collection<Skills> skillsCollection) {
-        this.skillsCollection = skillsCollection;
+    public void setPrivilegeCollection(Collection<Privilege> privilegeCollection) {
+        this.privilegeCollection = privilegeCollection;
     }
 
     @XmlTransient
@@ -127,6 +132,15 @@ public class Users implements Serializable {
 
     public void setProjectCollection(Collection<Project> projectCollection) {
         this.projectCollection = projectCollection;
+    }
+
+    @XmlTransient
+    public Collection<Skills> getSkillsCollection() {
+        return skillsCollection;
+    }
+
+    public void setSkillsCollection(Collection<Skills> skillsCollection) {
+        this.skillsCollection = skillsCollection;
     }
 
     @XmlTransient

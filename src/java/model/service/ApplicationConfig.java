@@ -31,8 +31,6 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(model.service.service.CampusFacadeREST.class);
         resources.add(model.service.service.CommentFacadeREST.class);
-        resources.add(model.service.service.ObtainFacadeREST.class);
-        resources.add(model.service.service.PossessFacadeREST.class);
         resources.add(model.service.service.PrivilegeFacadeREST.class);
         resources.add(model.service.service.ProjectFacadeREST.class);
         resources.add(model.service.service.RoleFacadeREST.class);

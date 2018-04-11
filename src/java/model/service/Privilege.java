@@ -6,14 +6,21 @@
 package model.service;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,11 +37,17 @@ public class Privilege implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "PrivilegeId")
     private Integer privilegeId;
     @Column(name = "Label")
     private String label;
+    @JoinTable(name = "obtain", joinColumns = {
+        @JoinColumn(name = "PrivilegeId", referencedColumnName = "PrivilegeId")}, inverseJoinColumns = {
+        @JoinColumn(name = "UserId", referencedColumnName = "UserId")})
+    @ManyToMany
+    private Collection<Users> usersCollection;
 
     public Privilege() {
     }
@@ -57,6 +70,15 @@ public class Privilege implements Serializable {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    @XmlTransient
+    public Collection<Users> getUsersCollection() {
+        return usersCollection;
+    }
+
+    public void setUsersCollection(Collection<Users> usersCollection) {
+        this.usersCollection = usersCollection;
     }
 
     @Override

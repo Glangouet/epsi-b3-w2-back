@@ -11,6 +11,8 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -43,14 +45,15 @@ public class Project implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "IdProjet")
     private Integer idProjet;
     @Column(name = "StartDate")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date startDate;
     @Column(name = "EndDate")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
     @Column(name = "LeftToken")
     private Integer leftToken;
@@ -58,11 +61,16 @@ public class Project implements Serializable {
     private String title;
     @Column(name = "Description")
     private String description;
-    @JoinTable(name = "do", joinColumns = {
+    @JoinTable(name = "belong", joinColumns = {
         @JoinColumn(name = "IdProjet", referencedColumnName = "IdProjet")}, inverseJoinColumns = {
         @JoinColumn(name = "UserId", referencedColumnName = "UserId")})
     @ManyToMany
     private Collection<Users> usersCollection;
+    @JoinTable(name = "possess", joinColumns = {
+        @JoinColumn(name = "IdProjet", referencedColumnName = "IdProjet")}, inverseJoinColumns = {
+        @JoinColumn(name = "TokenId", referencedColumnName = "TokenId")})
+    @ManyToMany
+    private Collection<Token> tokenCollection;
     @OneToMany(mappedBy = "idProjet")
     private Collection<Comment> commentCollection;
 
@@ -128,6 +136,15 @@ public class Project implements Serializable {
 
     public void setUsersCollection(Collection<Users> usersCollection) {
         this.usersCollection = usersCollection;
+    }
+
+    @XmlTransient
+    public Collection<Token> getTokenCollection() {
+        return tokenCollection;
+    }
+
+    public void setTokenCollection(Collection<Token> tokenCollection) {
+        this.tokenCollection = tokenCollection;
     }
 
     @XmlTransient

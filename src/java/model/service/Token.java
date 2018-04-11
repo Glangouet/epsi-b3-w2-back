@@ -6,6 +6,7 @@
 package model.service;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -21,6 +23,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -44,14 +47,16 @@ public class Token implements Serializable {
     @Column(name = "TokenId")
     private Integer tokenId;
     @Column(name = "StartDate")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date startDate;
     @Column(name = "EndDate")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
     @Column(name = "AssignmentDate")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date assignmentDate;
+    @ManyToMany(mappedBy = "tokenCollection")
+    private Collection<Project> projectCollection;
     @JoinColumn(name = "UserId", referencedColumnName = "UserId")
     @ManyToOne
     private Users userId;
@@ -93,6 +98,15 @@ public class Token implements Serializable {
 
     public void setAssignmentDate(Date assignmentDate) {
         this.assignmentDate = assignmentDate;
+    }
+
+    @XmlTransient
+    public Collection<Project> getProjectCollection() {
+        return projectCollection;
+    }
+
+    public void setProjectCollection(Collection<Project> projectCollection) {
+        this.projectCollection = projectCollection;
     }
 
     public Users getUserId() {

@@ -45,7 +45,7 @@ public class Comment implements Serializable {
     @Column(name = "Content")
     private String content;
     @Column(name = "CreateDate")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
     @JoinColumn(name = "IdProjet", referencedColumnName = "IdProjet")
     @ManyToOne

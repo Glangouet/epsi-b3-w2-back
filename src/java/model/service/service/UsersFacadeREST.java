@@ -18,10 +18,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import model.service.Campus;
-import model.service.Project;
-import model.service.Role;
-import model.service.Skills;
 import model.service.Users;
 
 /**
@@ -41,14 +37,14 @@ public class UsersFacadeREST extends AbstractFacade<Users> {
 
     @POST
     @Override
-    @Consumes({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public void create(Users entity) {
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
-    @Consumes({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public void edit(@PathParam("id") Integer id, Users entity) {
         super.edit(entity);
     }
@@ -61,37 +57,9 @@ public class UsersFacadeREST extends AbstractFacade<Users> {
 
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Users find(@PathParam("id") Integer id) {
         return super.find(id);
-    }
-    
-    @GET
-    @Path("{skill}")
-    @Produces({MediaType.APPLICATION_JSON})
-    public Users findBySkills(@PathParam("skills") Skills skills) {
-        return super.find(skills);
-    }
-    
-    @GET
-    @Path("{campus}")
-    @Produces({MediaType.APPLICATION_JSON})
-    public Users findByCampus(@PathParam("campus") Campus campus) {
-        return super.find(campus);
-    }
-    
-    @GET
-    @Path("{project}")
-    @Produces({MediaType.APPLICATION_JSON})
-    public Users findByProject(@PathParam("project") Project project) {
-        return super.find(project);
-    }
-    
-    @GET
-    @Path("{role}")
-    @Produces({MediaType.APPLICATION_JSON})
-    public Users findByCRole(@PathParam("role") Role role) {
-        return super.find(role);
     }
 
     @GET
